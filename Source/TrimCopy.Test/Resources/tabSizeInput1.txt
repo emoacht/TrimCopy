@@ -1,0 +1,115 @@
+﻿				<!-- Image list view -->
+				<ListView
+					x:Name="ImageListView"
+					SelectionMode="Single"
+					ItemsSource="{Binding FileListCoreView}"
+					SelectedIndex="{Binding FileListCoreViewIndex, Mode=OneWay}">
+					<ListView.Resources>
+						<DataTemplate x:Key="RealizedThumbnail">
+							<Border Margin="4"
+									Background="{Binding Status, Converter={StaticResource FileStatusToBrushConverterKey}}">
+								<Grid>
+									<Grid Background="{StaticResource FileItemStatus.Foreground}"
+										  Opacity="{Binding Opacity, ElementName=ListViewItemShadow}"/>
+									<Grid Margin="4">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="*"/>
+											<ColumnDefinition Width="Auto"/>
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition Height="Auto"/>
+											<RowDefinition/>
+										</Grid.RowDefinitions>
+										<TextBlock>
+											<Run Text="{Binding Directory, Mode=OneTime}"/>
+											<LineBreak/>
+											<Run Text="{Binding FileName, Mode=OneTime}"/>
+											<LineBreak/>
+											<Run Text="{Binding Date, Mode=OneTime, StringFormat=yyyy/MM/dd}"/>
+											<LineBreak/>
+											<Run Text="{Binding Date, Mode=OneTime, StringFormat=HH\\:mm\\:ss}"/>
+										</TextBlock>
+										<TextBlock
+											Grid.Column="0" Grid.Row="1"
+											VerticalAlignment="Center"
+											FontSize="14"
+											Text="{Binding Status, Converter={StaticResource FileStatusToStringConverterKey}}"
+											Foreground="{StaticResource FileItemStatus.Foreground}"/>
+										<Image
+											Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+											Width="120" Height="90"
+											Margin="4,0,0,0"
+											Source="{Binding Thumbnail}"/>
+									</Grid>
+								</Grid>
+							</Border>
+						</DataTemplate>
+					</ListView.Resources>
+
+					<ListView.Template>
+						<ControlTemplate TargetType="{x:Type ListView}">
+							<Border BorderThickness="0"
+									Background="{StaticResource ImageListView.Background}">
+								<ScrollViewer HorizontalScrollBarVisibility="Disabled">
+									<WrapPanel Margin="4,0,4,4"
+											   IsItemsHost="True"/>
+								</ScrollViewer>
+							</Border>
+						</ControlTemplate>
+					</ListView.Template>
+
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ContentControl x:Name="Thumbnail"
+											MinWidth="228" Height="108" Margin="0"
+											Content="{Binding}"
+											ContentTemplate="{x:Null}"/>
+							<DataTemplate.Triggers>
+								<DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListViewItem}}}" Value="True">
+									<Setter TargetName="Thumbnail" Property="ContentTemplate" Value="{StaticResource RealizedThumbnail}"/>
+								</DataTrigger>
+							</DataTemplate.Triggers>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+
+					<ListView.ItemContainerStyle>
+						<Style TargetType="{x:Type ListViewItem}">
+							<Setter Property="IsSelected" Value="{Binding IsSelected}"/>
+							<Setter Property="Margin" Value="0"/>
+							<Setter Property="OverridesDefaultStyle" Value="True"/>
+							<Setter Property="Template">
+								<Setter.Value>
+									<ControlTemplate TargetType="{x:Type ContentControl}">
+										<Grid>
+											<Grid x:Name="ListViewItemShadow"
+												  Opacity="0"/>
+											<Border Background="{TemplateBinding Background}">
+												<ContentPresenter/>
+											</Border>
+
+											<VisualStateManager.VisualStateGroups>
+												<VisualStateGroup x:Name="CommonStates">
+													<VisualState x:Name="Normal"/>
+													<VisualState x:Name="MouseOver">
+														<Storyboard>
+															<DoubleAnimation
+																Storyboard.TargetName="ListViewItemShadow"
+																Storyboard.TargetProperty="Opacity"
+																Duration="0:0:0.1"
+																To="0.2"/>
+														</Storyboard>
+													</VisualState>
+												</VisualStateGroup>
+											</VisualStateManager.VisualStateGroups>
+										</Grid>
+									</ControlTemplate>
+								</Setter.Value>
+							</Setter>
+						</Style>
+					</ListView.ItemContainerStyle>
+
+					<i:Interaction.Behaviors>
+						<behaviors:ItemsControlChildBehavior/>
+						<behaviors:SelectorSelectedItemBehavior/>
+					</i:Interaction.Behaviors>
+				</ListView>

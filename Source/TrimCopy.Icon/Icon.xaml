@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="TrimCopy.Icon.Icon"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:local="clr-namespace:TrimCopy.Icon"
+			 Width="32" Height="32">
+	<UserControl.Resources>
+		<SolidColorBrush x:Key="SelectedLineBrush">
+			<SolidColorBrush.Color>
+				<Color A="255" R="173" G="214" B="255"/>
+			</SolidColorBrush.Color>
+		</SolidColorBrush>
+
+		<SolidColorBrush x:Key="TrimAreaBrush">
+			<SolidColorBrush.Color>
+				<Color A="255" R="234" G="24" B="16"/>
+			</SolidColorBrush.Color>
+		</SolidColorBrush>
+	</UserControl.Resources>
+
+	<Grid>
+		<StackPanel>
+			<Rectangle Width="18" Height="4" Margin="0,2,0,0" Fill="{StaticResource SelectedLineBrush}" HorizontalAlignment="Left"/>
+			<Rectangle Width="22" Height="6" Margin="0,2,0,0" Fill="{StaticResource SelectedLineBrush}" HorizontalAlignment="Left"/>
+			<Rectangle Width="28" Height="4" Margin="0,0,0,0" Fill="{StaticResource SelectedLineBrush}" HorizontalAlignment="Left"/>
+			<Rectangle Width="32" Height="6" Margin="0,2,0,0" Fill="{StaticResource SelectedLineBrush}" HorizontalAlignment="Left"/>
+			<Rectangle Width="18" Height="4" Margin="0,0,0,0" Fill="{StaticResource SelectedLineBrush}" HorizontalAlignment="Left"/>
+		</StackPanel>
+
+		<Rectangle Width="10" Height="32"
+				   HorizontalAlignment="Left" VerticalAlignment="Top"
+				   SnapsToDevicePixels="True"
+				   Stroke="{StaticResource TrimAreaBrush}"
+				   StrokeThickness="2"/>
+	</Grid>
+</UserControl>

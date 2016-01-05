@@ -1,0 +1,28 @@
+﻿		public async Task<IEnumerable<ProfileItem>> GetProfilesAsync(bool isLatest, TimeSpan timeout)
+		{
+			var interfacePacks = (await Netsh.GetInterfacesAsync().ConfigureAwait(false))
+				.ToArray(); // ToArray method is necessary.
+
+			var networkPacks = (await Netsh.GetNetworksAsync().ConfigureAwait(false))
+				.ToArray(); // ToArray method is necessary.
+
+			var profilePacks = await Netsh.GetProfilesAsync().ConfigureAwait(false);
+
+			return from profilePack in profilePacks
+				   let networkPack = networkPacks.FirstOrDefault(x =>
+					   x.InterfaceName.Equals(profilePack.InterfaceName, StringComparison.Ordinal) &&
+					   x.Ssid.Equals(profilePack.Ssid, StringComparison.Ordinal))
+				   from interfacePack in interfacePacks
+				   where profilePack.InterfaceName.Equals(interfacePack.Name, StringComparison.Ordinal)
+				   select new ProfileItem(
+					   name: profilePack.Name,
+					   interfaceId: interfacePack.Id,
+					   interfaceName: profilePack.InterfaceName,
+					   interfaceDescription: interfacePack.Description,
+					   authentication: ConvertToAuthentication(profilePack.Authentication),
+					   encryption: ConvertToEncryption(profilePack.Encryption),
+					   position: profilePack.Position,
+					   isAutomatic: profilePack.IsAutomatic,
+					   signal: (networkPack?.Signal ?? 0),
+					   isConnected: (interfacePack.IsConnected && profilePack.Name.Equals(interfacePack.ProfileName, StringComparison.Ordinal)));
+		}

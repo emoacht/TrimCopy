@@ -1,0 +1,30 @@
+      Public Shared Function CreateScheme(pointLow As Integer, pointHigh As Integer,
+                                          colorLow As Color, colorMid As Color, colorHigh As Color) As Color()
+
+          If ((pointLow < 0) OrElse (100 < pointLow)) Then Throw New ArgumentOutOfRangeException("pointLow")
+          If ((pointHigh < 0) OrElse (100 < pointHigh)) Then Throw New ArgumentOutOfRangeException("pointHigh")
+          If (pointLow > pointHigh) Then Throw New ArgumentException("The low point must be lower than the high point.")
+
+          Dim pointMid As Integer = Convert.ToInt32((pointLow + pointHigh) / 2)
+
+          'Allocate Color to each temperature degree from 0C to 100C (101 Colors in total).
+          Return Enumerable.Range(0, 101).
+              Select(
+                  Function(x)
+                      If (x < pointLow) Then
+                          Return colorLow
+
+                      ElseIf (x < pointMid) Then
+                          Dim perc As Double = 100.0R * (x - pointLow) / (pointMid - pointLow) 'Distance from pointLow in percentage (pointLow = 0%, pointMid = 100%)
+                          Return BlendColor(colorLow, colorMid, perc)
+
+                      ElseIf (x < pointHigh) Then
+                          Dim perc As Double = 100.0R * (x - pointMid) / (pointHigh - pointMid) 'Distance from pointMid in percentage (pointMid = 0%, pointHigh = 100%)
+                          Return BlendColor(colorMid, colorHigh, perc)
+
+                      Else '(x >= pointHigh)
+                          Return colorHigh
+                      End If
+                  End Function).
+              ToArray()
+      End Function

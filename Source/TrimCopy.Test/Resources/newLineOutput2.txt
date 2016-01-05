@@ -1,0 +1,23 @@
+private static IEnumerable<DiskInfo> SupplementByPhysicalDisk(this IEnumerable<DiskInfo> source)
+{
+    var canUseStorageManagement = OsVersion.IsEightOrNewer;
+
+    foreach (var info in source)
+    {
+        if (canUseStorageManagement)
+        {
+            using (var searcher = new ManagementObjectSearcher(
+                @"\\.\Root\Microsoft\Windows\Storage",
+                String.Format("SELECT * FROM MSFT_PhysicalDisk WHERE DeviceId = {0}", info.PhysicalDrive))) // DeviceId represents index number of physical drive.
+            {
+                var disk = searcher.Get().Cast<ManagementObject>().FirstOrDefault();
+                if ((disk != null) && (disk["BusType"] is ushort))
+                {
+                    info.BusType = (ushort)disk["BusType"];
+                }
+            }
+        }
+
+        yield return info;
+    }
+}

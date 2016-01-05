@@ -1,0 +1,25 @@
+/// <summary>
+/// <see cref="System.Threading.CancellationTokenSource"/> which can cancel without exception
+/// </summary>
+public sealed class CancellationTokenSourcePlus : CancellationTokenSource
+{
+    public CancellationTokenSourcePlus() : base() { }
+    public CancellationTokenSourcePlus(int millisecondsDelay) : base(millisecondsDelay) { }
+    public CancellationTokenSourcePlus(TimeSpan delay) : base(delay) { }
+
+    private readonly object _locker = new object();
+
+    public bool IsDisposed { get { return _isDisposed; } }
+    private bool _isDisposed = false;
+
+    protected override void Dispose(bool disposing)
+    {
+        lock (_locker)
+        {
+            if (_isDisposed)
+                return;
+
+            base.Dispose(disposing);
+            _isDisposed = true;
+        }
+    }
