@@ -1,45 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
-  <!--  This is the file that defines the actual layout and type of the commands.
-        It is divided in different sections (e.g. command definition, command
-        placement, ...), with each defining a specific set of properties.
-        See the comment before each section for more details about how to
-        use it. -->
-
-  <!--  The VSCT compiler (the tool that translates this file into the binary
-        format that VisualStudio will consume) has the ability to run a preprocessor
-        on the vsct file; this preprocessor is (usually) the C++ preprocessor, so
-        it is possible to define includes and macros with the same syntax used
-        in C++ files. Using this ability of the compiler here, we include some files
-        defining some of the constants that we will use inside the file. -->
-
-  <!--This is the file that defines the IDs for all the commands exposed by VisualStudio. -->
+  <!--This header defines the IDs for all the commands exposed by Visual Studio. -->
   <Extern href="stdidcmd.h"/>
 
-  <!--This header contains the command ids for the menus provided by the shell. -->
+  <!--This header contains the command IDs for the menus provided by the shell. -->
   <Extern href="vsshlids.h"/>
 
   <!--This header contains the image monikers for various images. -->
   <Include href="KnownImageIds.vsct"/>
 
-  <!--The Commands section is where commands, menus, and menu groups are defined.
-      This section uses a Guid to identify the package that provides the command defined inside it. -->
   <Commands package="guidTrimCopyPackage">
-    <!-- Inside this section we have different sub-sections: one for the menus, another
-         for the menu groups, one for the buttons (the actual commands), one for the combos
-         and the last one for the bitmaps used. Each element is identified by a command id that
-         is a unique pair of guid and numeric identifier; the guid part of the identifier is usually
-         called "command set" and is used to group different command inside a logically related
-         group; your package should define its own command set in order to avoid collisions
-         with command ids defined by other packages. -->
-
     <Menus>
-      <!--To define a menu element we need an ID, a parent group, a display priority,
-          a menu type, a name and a default text. The exception to requiring a parent
-          is if we are a top level piece of UI (i.e. a toolbar or a context menu. In other
-          words an element that doesn't live on any other command UI, or if we will later
-          parent our command via a CommandPlacement element to one or more locations). -->
+      <!--This is a menu to host a group which hosts actual buttons. This menu itself needs to be
+          hosted by a group which is hosted by Visual Studio's menu. -->
       <Menu guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextSubMenu" priority="0x100" type="Menu">
         <Parent guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextMenuItemGroup"/>
         <Strings>
@@ -49,27 +22,23 @@
       </Menu>
     </Menus>
 
-    <!--In this section you can define new menu groups. A menu group is a container for
-        other menus or buttons (commands); from a visual point of view you can see the
-        group as the part of a menu contained between two lines. The parent of a group
-        must be a menu. -->
     <Groups>
-      <!--Now create a new group inside the standard editor's context menu. As always the ID of
-          this menu is defined inside vsshlids.h. -->
+      <!--This is a group added to the standard editor's context menu. The GUID and ID of context menu
+          are defined inside vsshlids.h. -->
       <Group guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextMenuItemGroup" priority="0x400">
         <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_CODEWIN"/>
       </Group>
 
-      <Group guid="guidTrimCopyPackageCmdSet" id="XamlWindowContextMenuItemGroup" priority="0x400">
-        <Parent guid="GuidVisualStudioXamlWindowContextMenu" id="IDVisualStudioXamlWindowContextMenu"/>
+      <Group guid="guidTrimCopyPackageCmdSet" id="XamlEditorContextMenuItemGroup" priority="0x400">
+        <Parent guid="guidXamlEditorContextMenu" id="IDM_XamlEditorContextMenu"/>
       </Group>
 
-      <Group guid="guidTrimCopyPackageCmdSet" id="HtmlDocumentContextMenuItemGroup" priority="0x100">
-        <Parent guid="GuidVisualStudioHtmlDocumentContextMenu" id="IDVisualStudioHtmlDocumentContextMenu"/>
+      <Group guid="guidTrimCopyPackageCmdSet" id="HtmlContextContextMenuItemGroup" priority="0x100">
+        <Parent guid="guidHtmlContextContextMenu" id="IDM_HtmlContextContextMenu"/>
       </Group>
 
-      <Group guid="guidTrimCopyPackageCmdSet" id="JsonDocumentContextMenuItemGroup" priority="0x400">
-        <Parent guid="GuidVisualStudioJsonDocumentContextMenu" id="IDVisualStudioJsonDocumentContextMenu"/>
+      <Group guid="guidTrimCopyPackageCmdSet" id="JsonContextContextMenuItemGroup" priority="0x400">
+        <Parent guid="guidJsonContextContextMenu" id="IDM_JsonContextContextMenu"/>
       </Group>
 
       <!--<Group guid="guidTrimCopyPackageCmdSet" id="EditMenuItemGroup" priority="0x400">
@@ -81,17 +50,7 @@
       </Group>
     </Groups>
 
-    <!--Buttons section. -->
-    <!--This section defines the elements the user can interact with, like a menu command or a button
-        or combo box in a toolbar. -->
     <Buttons>
-      <!--To define a menu group you have to specify its ID, the parent menu and its display priority.
-          The command is visible and enabled by default. If you need to change the visibility, status, etc, you can use
-          the CommandFlag node.
-          You can add more than one CommandFlag node e.g.:
-              <CommandFlag>DefaultInvisible</CommandFlag>
-              <CommandFlag>DynamicVisibility</CommandFlag>
-          If you do not want an image next to your command, remove the Icon node /> -->
       <Button guid="guidTrimCopyPackageCmdSet" id="CopyOneCommandId" priority="0x0100" type="Button">
         <Parent guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextSubMenuGroup"/>
         <Icon guid="ImageCatalogGuid" id="Copy"/>
@@ -115,17 +74,16 @@
   </Commands>
 
   <CommandPlacements>
-    <!--In this section, you can include commands, groups, or menus in a secondary location. -->
     <CommandPlacement guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextSubMenu" priority="0x100">
-      <Parent guid="guidTrimCopyPackageCmdSet" id="XamlWindowContextMenuItemGroup"/>
+      <Parent guid="guidTrimCopyPackageCmdSet" id="XamlEditorContextMenuItemGroup"/>
     </CommandPlacement>
 
     <CommandPlacement guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextSubMenu" priority="0x100">
-      <Parent guid="guidTrimCopyPackageCmdSet" id="HtmlDocumentContextMenuItemGroup"/>
+      <Parent guid="guidTrimCopyPackageCmdSet" id="HtmlContextContextMenuItemGroup"/>
     </CommandPlacement>
 
     <CommandPlacement guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextSubMenu" priority="0x100">
-      <Parent guid="guidTrimCopyPackageCmdSet" id="JsonDocumentContextMenuItemGroup"/>
+      <Parent guid="guidTrimCopyPackageCmdSet" id="JsonContextContextMenuItemGroup"/>
     </CommandPlacement>
 
     <!--<CommandPlacement guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextSubMenu" priority="0x100">
@@ -134,15 +92,15 @@
   </CommandPlacements>
 
   <Symbols>
-    <!-- This is the package guid. -->
+    <!--This is the package GUID of this extension. -->
     <GuidSymbol name="guidTrimCopyPackage" value="{561c1f6f-729d-4159-b797-9e8c91c2f594}" />
 
-    <!-- This is the guid used to group the menu commands together -->
+    <!--This is the GUID used to group the menu commands together. -->
     <GuidSymbol name="guidTrimCopyPackageCmdSet" value="{7bafd567-6a8c-4c9c-bbc9-438ffcd60e39}">
       <IDSymbol name="CodeWindowContextMenuItemGroup" value="0x1012"/>
-      <IDSymbol name="XamlWindowContextMenuItemGroup" value="0x1013"/>
-      <IDSymbol name="HtmlDocumentContextMenuItemGroup" value="0x1014"/>
-      <IDSymbol name="JsonDocumentContextMenuItemGroup" value="0x1015"/>
+      <IDSymbol name="XamlEditorContextMenuItemGroup" value="0x1013"/>
+      <IDSymbol name="HtmlContextContextMenuItemGroup" value="0x1014"/>
+      <IDSymbol name="JsonContextContextMenuItemGroup" value="0x1015"/>
       <!--<IDSymbol name="EditMenuItemGroup" value="0x1011"/>-->
 
       <IDSymbol name="CodeWindowContextSubMenu" value="0x1100"/>
@@ -152,15 +110,15 @@
       <IDSymbol name="CopyTwoCommandId" value="0x0102"/>
     </GuidSymbol>
 
-    <!-- These are not defined in vsshlids.h but derived from CodeMaid. -->
-    <GuidSymbol name="GuidVisualStudioXamlWindowContextMenu" value="{4c87b692-1202-46aa-b64c-ef01faec53da}">
-      <IDSymbol name="IDVisualStudioXamlWindowContextMenu" value="0x103"/>
+    <!--These are not defined in vsshlids.h but taken by using EnableVSIPLogging. -->
+    <GuidSymbol name="guidXamlEditorContextMenu" value="{4c87b692-1202-46aa-b64c-ef01faec53da}">
+      <IDSymbol name="IDM_XamlEditorContextMenu" value="0x103"/>
     </GuidSymbol>
-    <GuidSymbol name="GuidVisualStudioHtmlDocumentContextMenu" value="{78f03954-2fb8-4087-8ce7-59d71710b3bb}">
-      <IDSymbol name="IDVisualStudioHtmlDocumentContextMenu" value="0x1"/>
+    <GuidSymbol name="guidHtmlContextContextMenu" value="{78f03954-2fb8-4087-8ce7-59d71710b3bb}">
+      <IDSymbol name="IDM_HtmlContextContextMenu" value="0x1"/>
     </GuidSymbol>
-    <GuidSymbol name="GuidVisualStudioJsonDocumentContextMenu" value="{f718ca06-cf4f-4a0c-9106-e79e9ee5e7cd}">
-      <IDSymbol name="IDVisualStudioJsonDocumentContextMenu" value="0x3"/>
+    <GuidSymbol name="guidJsonContextContextMenu" value="{f718ca06-cf4f-4a0c-9106-e79e9ee5e7cd}">
+      <IDSymbol name="IDM_JsonContextContextMenu" value="0x3"/>
     </GuidSymbol>
   </Symbols>
 </CommandTable>
