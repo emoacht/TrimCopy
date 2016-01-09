@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Media;
@@ -16,8 +15,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using Microsoft.Win32;
 
-using TrimCopy.Models;
-
 namespace TrimCopy.Icon
 {
 	public partial class MainWindow : Window
@@ -27,30 +24,7 @@ namespace TrimCopy.Icon
 			InitializeComponent();
 
 			ScaleSlider.Value = ImageContent.Width;
-
-			Format();
 		}
-
-		#region Format
-
-		private void Format()
-		{
-			const string inputFilePath = @"c:\work\input.txt";
-			const string outputFilePath = @"c:\work\output.txt";
-
-			if (!File.Exists(inputFilePath))
-				return;
-
-			var input = File.ReadAllText(inputFilePath);
-
-			var formatted = StringFormatter.Format(input, 4, 0, true, false, NewLineType.CrLf);
-
-			File.WriteAllText(outputFilePath, formatted);
-
-			Debug.WriteLine("Formatted!");
-		}
-
-		#endregion
 
 		#region Icon
 
