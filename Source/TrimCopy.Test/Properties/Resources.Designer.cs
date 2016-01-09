@@ -210,81 +210,12 @@ namespace TrimCopy.Test.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 		private static IEnumerable&lt;DiskInfo&gt; SupplementByPhysicalDisk(this IEnumerable&lt;DiskInfo&gt; source)
-        ///		{
-        ///			var canUseStorageManagement = OsVersion.IsEightOrNewer;
-        ///
-        ///			foreach (var info in source)
-        ///			{
-        ///				if (canUseStorageManagement)
-        ///				{
-        ///					using (var searcher = new ManagementObjectSearcher(
-        ///						@&quot;\\.\Root\Microsoft\Windows\Storage&quot;,
-        ///						String.Format(&quot;SELECT * FROM MSFT_PhysicalDisk WHERE DeviceId = {0}&quot;, info.PhysicalDrive))) // DeviceId represents index number of physical drive.
-        ///					{        /// [rest of string was truncated]&quot;;.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static string newLineInput1 {
+        internal static byte[] newLineInputOutput {
             get {
-                return ResourceManager.GetString("newLineInput1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 		private static IEnumerable&lt;DiskInfo&gt; SupplementByPhysicalDisk(this IEnumerable&lt;DiskInfo&gt; source)
-        ///		{
-        ///			var canUseStorageManagement = OsVersion.IsEightOrNewer;
-        ///
-        ///			foreach (var info in source)
-        ///			{
-        ///				if (canUseStorageManagement)
-        ///				{
-        ///					using (var searcher = new ManagementObjectSearcher(
-        ///						@&quot;\\.\Root\Microsoft\Windows\Storage&quot;,
-        ///						String.Format(&quot;SELECT * FROM MSFT_PhysicalDisk WHERE DeviceId = {0}&quot;, info.PhysicalDrive))) // DeviceId represents index number of physical drive.
-        ///					{
-        ///						var d [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string newLineInput2 {
-            get {
-                return ResourceManager.GetString("newLineInput2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to     private static IEnumerable&lt;DiskInfo&gt; SupplementByPhysicalDisk(this IEnumerable&lt;DiskInfo&gt; source)
-        ///    {
-        ///        var canUseStorageManagement = OsVersion.IsEightOrNewer;
-        ///
-        ///        foreach (var info in source)
-        ///        {
-        ///            if (canUseStorageManagement)
-        ///            {
-        ///                using (var searcher = new ManagementObjectSearcher(
-        ///                    @&quot;\\.\Root\Microsoft\Windows\Storage&quot;,
-        ///                    String.Format(&quot;SELECT * FROM MSFT_PhysicalDisk WHERE DeviceId = {0}&quot;, info.PhysicalDrive))) [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string newLineOutput1 {
-            get {
-                return ResourceManager.GetString("newLineOutput1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to private static IEnumerable&lt;DiskInfo&gt; SupplementByPhysicalDisk(this IEnumerable&lt;DiskInfo&gt; source)
-        ///{
-        ///    var canUseStorageManagement = OsVersion.IsEightOrNewer;
-        ///
-        ///    foreach (var info in source)
-        ///    {
-        ///        if (canUseStorageManagement)
-        ///        {
-        ///            using (var searcher = new ManagementObjectSearcher(
-        ///                @&quot;\\.\Root\Microsoft\Windows\Storage&quot;,
-        ///                String.Format(&quot;SELECT * FROM MSFT_PhysicalDisk WHERE DeviceId = {0}&quot;, info.PhysicalDrive))) // DeviceId represents index  [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string newLineOutput2 {
-            get {
-                return ResourceManager.GetString("newLineOutput2", resourceCulture);
+                object obj = ResourceManager.GetObject("newLineInputOutput", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

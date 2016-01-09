@@ -142,17 +142,8 @@
   <data name="htmlEncodeOutput1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\htmlEncodeOutput1.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
   </data>
-  <data name="newLineInput1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\newLineInput1.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="newLineInput2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\newLineInput2.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="newLineOutput1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\newLineOutput1.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
-  </data>
-  <data name="newLineOutput2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\newLineOutput2.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
+  <data name="newLineInputOutput" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\newLineInputOutput.zip;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tabSizeInput1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tabSizeInput1.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>

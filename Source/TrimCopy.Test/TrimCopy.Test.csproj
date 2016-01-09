@@ -37,6 +37,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -84,6 +86,7 @@
     <None Include="Resources\newLineInput2.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\newLineInputOutput.zip" />
     <None Include="Resources\newLineOutput1.txt" />
   </ItemGroup>
   <ItemGroup>
