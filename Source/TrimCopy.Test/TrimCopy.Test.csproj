@@ -80,17 +80,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\newLineInput1.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\newLineInput2.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\newLineInputOutput.zip" />
-    <None Include="Resources\newLineOutput1.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\newLineOutput2.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\htmlEncodeInput1.txt" />
