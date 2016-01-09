@@ -1,4 +1,4 @@
-      Public Shared Function CreateScheme(pointLow As Integer, pointHigh As Integer,
+﻿      Public Shared Function CreateScheme(pointLow As Integer, pointHigh As Integer,
                                           colorLow As Color, colorMid As Color, colorHigh As Color) As Color()
 
           If ((pointLow < 0) OrElse (100 < pointLow)) Then Throw New ArgumentOutOfRangeException("pointLow")

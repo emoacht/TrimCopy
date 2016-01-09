@@ -1,4 +1,4 @@
-/// &lt;summary&gt;
+﻿/// &lt;summary&gt;
 /// Get codec info from a BitmapImage.
 /// &lt;/summary&gt;
 /// &lt;typeparam name=&quot;TEncoder&quot;&gt;BitmapEncoder&lt;/typeparam&gt;

@@ -1,4 +1,4 @@
-    /// <summary>
+﻿    /// <summary>
     /// Blend two Colors.
     /// </summary>
     /// <param name="color1">1st Color</param>

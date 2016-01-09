@@ -1,4 +1,4 @@
-    /// <summary>
+﻿    /// <summary>
     /// <see cref="System.Threading.CancellationTokenSource"/> which can cancel without exception
     /// </summary>   
     public sealed class CancellationTokenSourcePlus : CancellationTokenSource

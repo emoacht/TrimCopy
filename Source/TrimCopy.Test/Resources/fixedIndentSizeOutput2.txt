@@ -1,4 +1,4 @@
-  public async Task<IEnumerable<ProfileItem>> GetProfilesAsync(bool isLatest, TimeSpan timeout)
+﻿  public async Task<IEnumerable<ProfileItem>> GetProfilesAsync(bool isLatest, TimeSpan timeout)
   {
       var interfacePacks = (await Netsh.GetInterfacesAsync().ConfigureAwait(false))
           .ToArray(); // ToArray method is necessary.
