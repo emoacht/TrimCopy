@@ -9,9 +9,9 @@ Trim Copy is a Visual Studio extension to copy selected code block to the clipbo
 
 ##Development
 
-To run an extension in experimental instance of Visual Studio 2015, you need the following settings in __Debug__ pane of project properties.
+To run an extension in [experimental instance](https://msdn.microsoft.com/en-us/library/bb166560.aspx) of Visual Studio 2015, you need the following settings in __Debug__ pane of project properties.
 
- - In __Start Action__, select __Start external program__ and input `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe` (this path depends on the install path of Visual Studio off course).
+ - In __Start Action__, select __Start external program__ and input the path to Visual Studio executable. The typical path would be `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe`.
  - In __Start Options__, fill __Command line arguments__ with `/rootsuffix Exp`.
 
 These are default for Extensibility VSIX project and written in csproj.user file but that file is not included in the repository in principle.
