@@ -55,6 +55,24 @@ namespace TrimCopy
 
 		#region event
 
+		private bool _isActivated = false;
+
+		protected override void OnActivate(CancelEventArgs e)
+		{
+			base.OnActivate(e);
+
+			if (!_isActivated)
+			{
+				_isActivated = true;
+
+				// Once a user made any change in this page, Visual Studio will create a key for
+				// this extension under ApplicationPrivateSettings of the registry. After that,
+				// the values in the key will be automatically loaded when activated.
+				// Until then, default values of Settings class need to be reflected here.
+				Load();
+			}
+		}
+
 		protected override void OnApply(PageApplyEventArgs e)
 		{
 			base.OnApply(e);
@@ -69,8 +87,6 @@ namespace TrimCopy
 		/// <summary>
 		/// Copy values of this extension's own settings to equivalent values of this page.
 		/// </summary>
-		/// <remarks>This method is not really necessary because the values of this page will be 
-		/// automatically loaded from the registry by Visual Studio.</remarks>
 		private void Load()
 		{
 			TabSize = Settings.Current.TabSize;
@@ -82,7 +98,7 @@ namespace TrimCopy
 		}
 
 		/// <summary>
-		/// Copy values of this page to equivalent values of this extension's own settings and save to 
+		/// Copy values of this page to equivalent values of this extension's own settings and save to
 		/// the settings file.
 		/// </summary>
 		/// <remarks>The values of this page will be automatically saved to the registry by Visual Studio.</remarks>
