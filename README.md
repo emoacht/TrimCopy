@@ -18,6 +18,10 @@ These are default for Extensibility VSIX project and written in csproj.user file
 
 ##History
 
+Ver 1.2 2016-5-28
+
+ - Fixed default values in the settings
+
 Ver 1.1 2016-4-24
 
  - Modified vsix manifest for Visual Studio "15"
