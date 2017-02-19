@@ -5,7 +5,7 @@ Trim Copy is a Visual Studio extension to copy selected code block to the clipbo
 
 ##Requirements
 
- * Visual Studio 2015
+ * Visual Studio 2015, 2017
 
 ##Development
 
@@ -17,6 +17,10 @@ To run an extension in [experimental instance](https://msdn.microsoft.com/en-us/
 These are default for Extensibility VSIX project and written in csproj.user file but that file is not included in the repository in principle.
 
 ##History
+
+Ver 2.0 2017-2-19
+
+ - Converted to be compatible with Visual Studio 2017
 
 Ver 1.2 2016-5-28
 
