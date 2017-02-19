@@ -80,6 +80,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Resources\newLineInputOutput.zip" />
   </ItemGroup>
   <ItemGroup>
