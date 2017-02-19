@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("TrimCopy")]
-[assembly: AssemblyCopyright("Copyright © 2016 emoacht")]
+[assembly: AssemblyCopyright("Copyright © 2016-2017 emoacht")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

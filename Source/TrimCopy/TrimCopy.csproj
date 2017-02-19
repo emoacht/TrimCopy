@@ -218,7 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\LICENSE.txt">
-      <Link>LICENSE.txt</Link>
+      <Link>Resources\LICENSE.txt</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="Resources\icon.png">

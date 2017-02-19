@@ -5,7 +5,7 @@
     <DisplayName>Trim Copy</DisplayName>
     <Description xml:space="preserve">Copies code block trimming leading white spaces while keeping indentation structure.</Description>
     <MoreInfo>https://github.com/emoacht/TrimCopy/</MoreInfo>
-    <License>LICENSE.txt</License>
+    <License>Resources/LICENSE.txt</License>
     <Icon>Resources/icon.png</Icon>
     <PreviewImage>Resources/preview.png</PreviewImage>
     <Tags>Text Editor, Clipboard</Tags>
