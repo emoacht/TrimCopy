@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -79,8 +78,7 @@ namespace TrimCopy.Models
 			{
 				var value = userSettingsStore.GetString(privateSettingsTextEditorLanguage, propertyName);
 
-				int buff;
-				if (int.TryParse(value?.Split('*').Last(), out buff))
+				if (int.TryParse(value?.Split('*').Last(), out int buff))
 					return buff;
 			}
 			return null;

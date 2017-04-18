@@ -41,13 +41,9 @@ namespace TrimCopy
 		/// <param name="package">Owner package, not null.</param>
 		private TrimCopyCommand(Package package)
 		{
-			if (package == null)
-				throw new ArgumentNullException(nameof(package));
+			this.package = package ?? throw new ArgumentNullException(nameof(package));
 
-			this.package = package;
-
-			OleMenuCommandService commandService = this.ServiceProvider.GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
-			if (commandService != null)
+			if (this.ServiceProvider.GetService(typeof(IMenuCommandService)) is OleMenuCommandService commandService)
 			{
 				var copyOneMenuCommandId = new CommandID(CommandSet, CopyOneCommandId);
 				var copyOneMenuCommand = new MenuCommand(this.ExecuteCopyOneCommand, copyOneMenuCommandId);
