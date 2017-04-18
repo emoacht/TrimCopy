@@ -1,13 +1,12 @@
-﻿Trim Copy
-=========
+﻿# Trim Copy
 
 Trim Copy is a Visual Studio extension to copy selected code block to the clipboard trimming leading white spaces while keeping indentation structure. It allows you to copy the code in text editor of Visual Studio, trim unnecessary white spaces and paste it into a document in Markdown or other format by one step.
 
-##Requirements
+## Requirements
 
  * Visual Studio 2015, 2017
 
-##Development
+## Development
 
 To run an extension in [experimental instance](https://msdn.microsoft.com/en-us/library/bb166560.aspx) of Visual Studio 2015, you need the following settings in __Debug__ pane of project properties.
 
@@ -16,7 +15,7 @@ To run an extension in [experimental instance](https://msdn.microsoft.com/en-us/
 
 These are default for Extensibility VSIX project and written in csproj.user file but that file is not included in the repository in principle.
 
-##History
+## History
 
 Ver 2.0 2017-2-19
 
@@ -34,6 +33,6 @@ Ver 1.0 2016-1-6
 
  - Initial release
 
-##License
+## License
 
  - MIT License
