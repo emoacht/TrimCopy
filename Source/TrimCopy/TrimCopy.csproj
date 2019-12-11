@@ -43,7 +43,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TrimCopy</RootNamespace>
     <AssemblyName>TrimCopy</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
     <IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>
