@@ -66,7 +66,7 @@ namespace TrimCopy
 			{
 				_isActivated = true;
 
-				// Once a user made any change in this page, Visual Studio will create a key for
+				// Once a user made any change in this page, Visual Studio will create a key for 
 				// this extension under ApplicationPrivateSettings of the registry. After that,
 				// the values in the key will be automatically loaded when activated.
 				// Until then, default values of Settings class need to be reflected here.
@@ -86,7 +86,7 @@ namespace TrimCopy
 		#region Load/Save
 
 		/// <summary>
-		/// Copy values of this extension's own settings to equivalent values of this page.
+		/// Copies values of this extension's own settings to equivalent values of this page.
 		/// </summary>
 		private void Load()
 		{
@@ -99,10 +99,12 @@ namespace TrimCopy
 		}
 
 		/// <summary>
-		/// Copy values of this page to equivalent values of this extension's own settings and save to
+		/// Copies values of this page to equivalent values of this extension's own settings and save to
 		/// the settings file.
 		/// </summary>
-		/// <remarks>The values of this page will be automatically saved to the registry by Visual Studio.</remarks>
+		/// <remarks>
+		/// The values of this page will be automatically saved to the registry by Visual Studio.
+		/// </remarks>
 		private void Save()
 		{
 			Settings.Current.TabSize = TabSize;
@@ -120,20 +122,20 @@ namespace TrimCopy
 
 	public class TabSizeConverter : Int32Converter
 	{
-		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
-			=> true;
+		public override bool GetStandardValuesSupported(ITypeDescriptorContext context) => true;
+		public override bool GetStandardValuesExclusive(ITypeDescriptorContext context) => true;
 
-		public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
-			=> new StandardValuesCollection(Enumerable.Range(1, 8).ToArray()); // 1-8
+		public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context) =>
+			new StandardValuesCollection(Enumerable.Range(1, 8).ToArray()); // 1-8
 	}
 
 	public class IndentSizeConverter : Int32Converter
 	{
-		public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
-			=> true;
+		public override bool GetStandardValuesSupported(ITypeDescriptorContext context) => true;
+		public override bool GetStandardValuesExclusive(ITypeDescriptorContext context) => true;
 
-		public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
-			=> new StandardValuesCollection(Enumerable.Range(0, 9).ToArray()); // 0-8
+		public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context) =>
+			new StandardValuesCollection(Enumerable.Range(0, 9).ToArray()); // 0-8
 	}
 
 	public enum Toggle { On, Off }

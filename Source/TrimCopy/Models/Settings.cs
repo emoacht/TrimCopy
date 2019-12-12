@@ -21,8 +21,8 @@ namespace TrimCopy.Models
 
 		public int TabSize
 		{
-			get { return _tabSize; }
-			set { _tabSize = Clip(value, 1, 8); } // The range of value is 1-8.
+			get => _tabSize;
+			set => _tabSize = Clip(value, 1, 8); // The range of value is 1-8.
 		}
 		private int _tabSize = 4;
 
@@ -30,8 +30,8 @@ namespace TrimCopy.Models
 
 		public int FixedIndentSize
 		{
-			get { return _fixedIndentSize; }
-			set { _fixedIndentSize = Clip(value, 0, 8); } // The range of value is 0-8.
+			get => _fixedIndentSize;
+			set => _fixedIndentSize = Clip(value, 0, 8); // The range of value is 0-8.
 		}
 		private int _fixedIndentSize = 4;
 

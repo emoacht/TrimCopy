@@ -13,7 +13,7 @@ namespace TrimCopy.Icon
 	public class FrameworkElementImage
 	{
 		/// <summary>
-		/// Save the image of a specified FrameworkElement to file in PNG format.
+		/// Saves the image of a specified FrameworkElement to file in PNG format.
 		/// </summary>
 		/// <param name="source">FrameworkElement</param>
 		/// <param name="filePath">File path</param>
@@ -21,9 +21,8 @@ namespace TrimCopy.Icon
 		/// <param name="height">Height of saved image (optional)</param>
 		public static void SaveImage(FrameworkElement source, string filePath, double width = 0D, double height = 0D)
 		{
-			if (source == null)
+			if (source is null)
 				throw new ArgumentNullException(nameof(source));
-
 			if (string.IsNullOrWhiteSpace(filePath))
 				throw new ArgumentNullException(nameof(filePath));
 

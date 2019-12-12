@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
@@ -23,7 +22,7 @@ namespace TrimCopy.Experiment.Models.GitHub
 		public static async Task DownloadFilesAsync(string repoPath, int callCount, int fileCount, string fileExtension = null)
 		{
 			var contents = await GitHubWorker.GetAllContentsAsync(repoPath, callCount, fileExtension);
-			if (contents == null)
+			if (contents is null)
 				return;
 
 			Debug.WriteLine($"Files: {contents.Length}");

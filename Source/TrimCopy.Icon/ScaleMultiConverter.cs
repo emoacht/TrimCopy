@@ -13,10 +13,10 @@ namespace TrimCopy.Icon
 	{
 		public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
 		{
-			if ((values == null) || (values.Length < 2) || !(values[0] is double) || !(values[1] is double))
+			if ((values is null) || (values.Length < 2) || !(values[0] is double value0) || !(values[1] is double value1))
 				return DependencyProperty.UnsetValue;
 
-			return (double)values[0] / (double)values[1];
+			return value0 / value1;
 		}
 
 		public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)

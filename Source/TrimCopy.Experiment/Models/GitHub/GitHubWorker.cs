@@ -17,7 +17,7 @@ namespace TrimCopy.Experiment.Models.GitHub
 		{
 			var path = "/rate_limit";
 			var response = await GetFromGitHubAsync(path);
-			if (response == null)
+			if (response is null)
 				return null;
 
 			var rateLimit = JsonConvert.DeserializeObject<RateLimit>(response);
@@ -30,7 +30,7 @@ namespace TrimCopy.Experiment.Models.GitHub
 			if (string.IsNullOrWhiteSpace(repoPath)) throw new ArgumentNullException(nameof(repoPath));
 
 			var path = $@"/repos/{repoPath.Trim('/')}/readme";
-			string response = null;
+			string response;
 			try
 			{
 				response = await GetFromGitHubAsync(path);
@@ -40,7 +40,7 @@ namespace TrimCopy.Experiment.Models.GitHub
 				return null;
 			}
 
-			if (response == null)
+			if (response is null)
 				return null;
 
 			var readme = JsonConvert.DeserializeObject<Readme>(response);
@@ -55,7 +55,7 @@ namespace TrimCopy.Experiment.Models.GitHub
 			if (string.IsNullOrWhiteSpace(repoPath)) throw new ArgumentNullException(nameof(repoPath));
 
 			var path = $@"/repos/{repoPath.Trim('/')}/contents";
-			string response = null;
+			string response;
 			try
 			{
 				response = await GetFromGitHubAsync(path);
@@ -65,7 +65,7 @@ namespace TrimCopy.Experiment.Models.GitHub
 				return Array.Empty<Content>();
 			}
 
-			if (response == null)
+			if (response is null)
 				return Array.Empty<Content>();
 
 			var contents = JsonConvert.DeserializeObject<Content[]>(response);
@@ -134,7 +134,7 @@ namespace TrimCopy.Experiment.Models.GitHub
 		private static async Task<Content[]> GetContentsAsync(string folderPath)
 		{
 			var response = await GetFromGitHubAsync(folderPath);
-			if (response == null)
+			if (response is null)
 				return Array.Empty<Content>();
 
 			return JsonConvert.DeserializeObject<Content[]>(response);
@@ -179,11 +179,10 @@ namespace TrimCopy.Experiment.Models.GitHub
 			if (!values.Any())
 				return null;
 
-			int buff;
-			if (!int.TryParse(values.First(), out buff))
+			if (!int.TryParse(values.First(), out int buffer))
 				return null;
 
-			return buff;
+			return buffer;
 		}
 	}
 

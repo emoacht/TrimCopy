@@ -47,7 +47,7 @@ namespace TrimCopy.Models
 
 		private static int? GetValueFromTextEditor(IServiceProvider serviceProvider, string languageName, string propertyName)
 		{
-			if (serviceProvider == null) return null;
+			if (serviceProvider is null) return null;
 			if (string.IsNullOrWhiteSpace(languageName)) return null;
 
 			SettingsManager settingsManager = new ShellSettingsManager(serviceProvider);
@@ -65,7 +65,7 @@ namespace TrimCopy.Models
 
 		private static int? GetValueFromPrivateSettingsTextEditor(IServiceProvider serviceProvider, string languageName, string propertyName)
 		{
-			if (serviceProvider == null) return null;
+			if (serviceProvider is null) return null;
 			if (string.IsNullOrWhiteSpace(languageName)) return null;
 
 			SettingsManager settingsManager = new ShellSettingsManager(serviceProvider);
@@ -78,8 +78,8 @@ namespace TrimCopy.Models
 			{
 				var value = userSettingsStore.GetString(privateSettingsTextEditorLanguage, propertyName);
 
-				if (int.TryParse(value?.Split('*').Last(), out int buff))
-					return buff;
+				if (int.TryParse(value?.Split('*').Last(), out int buffer))
+					return buffer;
 			}
 			return null;
 		}

@@ -76,20 +76,13 @@ namespace TrimCopy
 
 		#region Execute
 
-		private void ExecuteCopyOneCommand(object sender, EventArgs e)
-		{
-			GetFormatSetText(true);
-		}
-
-		private void ExecuteCopyTwoCommand(object sender, EventArgs e)
-		{
-			GetFormatSetText(false);
-		}
+		private void ExecuteCopyOneCommand(object sender, EventArgs e) => GetFormatSetText(true);
+		private void ExecuteCopyTwoCommand(object sender, EventArgs e) => GetFormatSetText(false);
 
 		private void GetFormatSetText(bool isNoIndent)
 		{
 			var activeDocument = ((DTE2)Package.GetGlobalService(typeof(DTE))).ActiveDocument;
-			if (activeDocument == null)
+			if (activeDocument is null)
 				return;
 
 			var text = GetSelectionText(activeDocument);
@@ -112,7 +105,7 @@ namespace TrimCopy
 		private string GetSelectionText(Document activeDocument)
 		{
 			var selection = activeDocument.Selection as TextSelection;
-			if (selection == null)
+			if (selection is null)
 				return null;
 
 			var topLine = selection.TopLine;
