@@ -51,6 +51,7 @@ namespace TrimCopy
 		[DisplayName("Line ending character")]
 		[Description("Line ending character to be used on copy.")]
 		[DefaultValue(LineEndType.CrLf)]
+		[TypeConverter(typeof(LineEndTypeConverter))]
 		public LineEndType LineEndType { get; set; }
 
 		#region event
