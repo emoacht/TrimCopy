@@ -16,7 +16,7 @@ namespace TrimCopy.Test
 			var input = Properties.Resources.trailingSpacesInput1;
 			var output = Properties.Resources.trailingSpacesOutput1;
 
-			var formatted = StringFormatter.Format(input, 4, 0, true, false, NewLineType.CrLf);
+			var formatted = StringFormatter.Format(input, 4, 0, true, false, LineEndType.CrLf);
 
 			Assert.AreEqual(output, formatted);
 		}
@@ -27,7 +27,7 @@ namespace TrimCopy.Test
 			var input = Properties.Resources.trailingSpacesInput1;
 			var output = Properties.Resources.trailingSpacesOutput2;
 
-			var formatted = StringFormatter.Format(input, 4, 4, false, false, NewLineType.CrLf);
+			var formatted = StringFormatter.Format(input, 4, 4, false, false, LineEndType.CrLf);
 
 			Assert.AreEqual(output, formatted);
 		}

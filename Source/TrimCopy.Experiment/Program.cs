@@ -37,7 +37,7 @@ namespace TrimCopy.Experiment
 
 			var input = File.ReadAllText(inputFilePath);
 
-			var formatted = StringFormatter.Format(input, 4, 0, true, false, NewLineType.CrLf);
+			var formatted = StringFormatter.Format(input, 4, 0, true, false, LineEndType.CrLf);
 
 			File.WriteAllText(outputFilePath, formatted);
 

@@ -47,11 +47,11 @@ namespace TrimCopy
 		[DefaultValue(Toggle.Off)]
 		public Toggle HtmlEncode { get; set; }
 
-		[Category("Newline")]
-		[DisplayName("Newline character")]
-		[Description("Newline character to be used on copy.")]
-		[DefaultValue(NewLineType.CrLf)]
-		public NewLineType NewLineType { get; set; }
+		[Category("Line Ending")]
+		[DisplayName("Line ending character")]
+		[Description("Line ending character to be used on copy.")]
+		[DefaultValue(LineEndType.CrLf)]
+		public LineEndType LineEndType { get; set; }
 
 		#region event
 
@@ -94,7 +94,7 @@ namespace TrimCopy
 			FixedIndentSize = Settings.Current.FixedIndentSize;
 			TrimTrailingSpaces = Settings.Current.TrimTrailingSpaces ? Toggle.On : Toggle.Off;
 			HtmlEncode = Settings.Current.HtmlEncode ? Toggle.On : Toggle.Off;
-			NewLineType = Settings.Current.NewLineType;
+			LineEndType = Settings.Current.LineEndType;
 		}
 
 		/// <summary>
@@ -109,7 +109,7 @@ namespace TrimCopy
 			Settings.Current.FixedIndentSize = FixedIndentSize;
 			Settings.Current.TrimTrailingSpaces = (TrimTrailingSpaces == Toggle.On);
 			Settings.Current.HtmlEncode = (HtmlEncode == Toggle.On);
-			Settings.Current.NewLineType = NewLineType;
+			Settings.Current.LineEndType = LineEndType;
 
 			Settings.Save();
 		}

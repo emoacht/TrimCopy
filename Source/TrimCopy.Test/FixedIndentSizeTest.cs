@@ -16,7 +16,7 @@ namespace TrimCopy.Test
 			var input = Properties.Resources.fixedIndentSizeInput1;
 			var output = Properties.Resources.fixedIndentSizeOutput1;
 
-			var formatted = StringFormatter.Format(input, 4, 12, true, false, NewLineType.CrLf);
+			var formatted = StringFormatter.Format(input, 4, 12, true, false, LineEndType.CrLf);
 
 			Assert.AreEqual(output, formatted);
 		}
@@ -27,7 +27,7 @@ namespace TrimCopy.Test
 			var input = Properties.Resources.fixedIndentSizeInput2;
 			var output = Properties.Resources.fixedIndentSizeOutput2;
 
-			var formatted = StringFormatter.Format(input, 4, 2, true, false, NewLineType.CrLf);
+			var formatted = StringFormatter.Format(input, 4, 2, true, false, LineEndType.CrLf);
 
 			Assert.AreEqual(output, formatted);
 		}
@@ -38,7 +38,7 @@ namespace TrimCopy.Test
 			var input = Properties.Resources.fixedIndentSizeInput3;
 			var output = Properties.Resources.fixedIndentSizeOutput3;
 
-			var formatted = StringFormatter.Format(input, 4, 6, true, false, NewLineType.CrLf);
+			var formatted = StringFormatter.Format(input, 4, 6, true, false, LineEndType.CrLf);
 
 			Assert.AreEqual(output, formatted);
 		}

@@ -212,9 +212,9 @@ namespace TrimCopy.Test.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] newLineInputOutput {
+        internal static byte[] lineEndInputOutput {
             get {
-                object obj = ResourceManager.GetObject("newLineInputOutput", resourceCulture);
+                object obj = ResourceManager.GetObject("lineEndInputOutput", resourceCulture);
                 return ((byte[])(obj));
             }
         }

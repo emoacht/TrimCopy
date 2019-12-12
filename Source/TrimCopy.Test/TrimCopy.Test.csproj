@@ -57,7 +57,7 @@
   <ItemGroup>
     <Compile Include="FixedIndentSizeTest.cs" />
     <Compile Include="HtmlEncodeTest.cs" />
-    <Compile Include="NewLineTypeTest.cs" />
+    <Compile Include="LineEndTypeTest.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -81,51 +81,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Resources\newLineInputOutput.zip" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\htmlEncodeInput1.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\htmlEncodeOutput1.txt" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\lineEndInputOutput.zip" />
     <None Include="Resources\trailingSpacesInput1.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\trailingSpacesOutput1.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\trailingSpacesOutput2.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\fixedIndentSizeInput1.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\fixedIndentSizeInput2.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\fixedIndentSizeOutput1.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\fixedIndentSizeOutput2.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\fixedIndentSizeInput3.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\fixedIndentSizeOutput3.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\tabSizeInput1.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\tabSizeInput2.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\tabSizeOutput1.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\tabSizeOutput2.txt" />
   </ItemGroup>
   <Choose>

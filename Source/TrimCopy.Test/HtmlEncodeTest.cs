@@ -16,7 +16,7 @@ namespace TrimCopy.Test
 			var input = Properties.Resources.htmlEncodeInput1;
 			var output = Properties.Resources.htmlEncodeOutput1;
 
-			var formatted = StringFormatter.Format(input, 4, 0, true, true, NewLineType.CrLf);
+			var formatted = StringFormatter.Format(input, 4, 0, true, true, LineEndType.CrLf);
 
 			Assert.AreEqual(output, formatted);
 		}

@@ -16,7 +16,7 @@ namespace TrimCopy.Test
 			var input = Properties.Resources.tabSizeInput1;
 			var output = Properties.Resources.tabSizeOutput1;
 
-			var formatted = StringFormatter.Format(input, 2, 0, true, false, NewLineType.CrLf);
+			var formatted = StringFormatter.Format(input, 2, 0, true, false, LineEndType.CrLf);
 
 			Assert.AreEqual(output, formatted);
 		}
@@ -27,7 +27,7 @@ namespace TrimCopy.Test
 			var input = Properties.Resources.tabSizeInput2;
 			var output = Properties.Resources.tabSizeOutput2;
 
-			var formatted = StringFormatter.Format(input, 8, 4, true, false, NewLineType.CrLf);
+			var formatted = StringFormatter.Format(input, 8, 4, true, false, LineEndType.CrLf);
 
 			Assert.AreEqual(output, formatted);
 		}

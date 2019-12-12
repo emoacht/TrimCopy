@@ -18,16 +18,16 @@ namespace TrimCopy.Experiment.Models
 			int fixedIndentSize = 0,
 			bool trimTrailingSpaces = true,
 			bool htmlEncode = false,
-			NewLineType newLineType = NewLineType.CrLf)
+			LineEndType lineEndType = LineEndType.CrLf)
 		{
 			if (string.IsNullOrEmpty(source))
 				return source;
 
-			var newLine = (newLineType == NewLineType.CrLf) ? "\r\n" : "\n";
+			var lineEnd = (lineEndType == LineEndType.CrLf) ? "\r\n" : "\n";
 
 			var trimmed = TrimSpaces(source, tabSize, fixedIndentSize, trimTrailingSpaces);
 
-			var joined = string.Join(newLine, trimmed.Concat(new[] { string.Empty })); // The last empty string is to add new line at the tail.
+			var joined = string.Join(lineEnd, trimmed.Concat(new[] { string.Empty })); // The last empty string is to add line ending at the tail.
 
 			return htmlEncode ? WebUtility.HtmlEncode(joined) : joined;
 		}

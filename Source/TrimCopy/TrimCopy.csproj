@@ -69,7 +69,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Models\NewLineType.cs" />
+    <Compile Include="Models\LineEndType.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\StringFormatter.cs" />
     <Compile Include="Models\UserSettings.cs" />

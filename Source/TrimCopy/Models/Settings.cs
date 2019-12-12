@@ -39,7 +39,7 @@ namespace TrimCopy.Models
 
 		public bool HtmlEncode { get; set; } = false;
 
-		public NewLineType NewLineType { get; set; } = NewLineType.CrLf;
+		public LineEndType LineEndType { get; set; } = LineEndType.CrLf;
 
 		#endregion
 
