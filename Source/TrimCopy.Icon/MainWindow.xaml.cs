@@ -12,21 +12,13 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using Microsoft.Win32;
 
 namespace TrimCopy.Icon
 {
 	public partial class MainWindow : Window
 	{
-		public MainWindow()
-		{
-			InitializeComponent();
-
-			ScaleSlider.Value = ImageContent.Width;
-		}
-
-		#region Icon
+		#region Property
 
 		public double ImageLength
 		{
@@ -39,6 +31,17 @@ namespace TrimCopy.Icon
 				typeof(double),
 				typeof(MainWindow),
 				new PropertyMetadata(256D));
+
+		#endregion
+
+		public MainWindow()
+		{
+			InitializeComponent();
+
+			ScaleSlider.Value = ImageContent.Width;
+		}
+
+		private void Save(object sender, RoutedEventArgs e) => SaveImage();
 
 		private string _fileName = "Icon.png";
 		private string _folderPath;
@@ -62,7 +65,5 @@ namespace TrimCopy.Icon
 
 			SystemSounds.Asterisk.Play();
 		}
-
-		#endregion
 	}
 }
