@@ -19,24 +19,24 @@
 		<!-- Image -->
 		<Grid Grid.Row="0"
 			  Width="256" Height="256">
-			<Grid x:Name="ImageGrid"
-				  Width="{Binding ElementName=ScaleSlider, Path=Value}"
-				  Height="{Binding ElementName=ScaleSlider, Path=Value}"
-				  HorizontalAlignment="Left" VerticalAlignment="Top"
-				  RenderTransformOrigin="0.5 0.5">
-				<local:Icon x:Name="ImageContent"
-							Width="32" Height="32"/>
+			<Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+				<Grid x:Name="ImageGrid"
+					  Width="{Binding ElementName=ScaleSlider, Path=Value}"
+					  Height="{Binding ElementName=ScaleSlider, Path=Value}"
+					  RenderTransformOrigin="0.5 0.5">
+					<local:Icon x:Name="ImageContent"/>
 
-				<Grid.RenderTransform>
-					<ScaleTransform ScaleY="{Binding RelativeSource={RelativeSource Self}, Path=ScaleX}">
-						<ScaleTransform.ScaleX>
-							<MultiBinding Converter="{StaticResource ScaleMultiConverterKey}">
-								<Binding ElementName="ScaleSlider" Path="Value"/>
-								<Binding ElementName="ImageContent" Path="Width"/>
-							</MultiBinding>
-						</ScaleTransform.ScaleX>
-					</ScaleTransform>
-				</Grid.RenderTransform>
+					<Grid.RenderTransform>
+						<ScaleTransform ScaleY="{Binding RelativeSource={RelativeSource Self}, Path=ScaleX}">
+							<ScaleTransform.ScaleX>
+								<MultiBinding Converter="{StaticResource ScaleMultiConverterKey}">
+									<Binding ElementName="ScaleSlider" Path="Value"/>
+									<Binding ElementName="ImageContent" Path="Width"/>
+								</MultiBinding>
+							</ScaleTransform.ScaleX>
+						</ScaleTransform>
+					</Grid.RenderTransform>
+				</Grid>
 			</Grid>
 		</Grid>
 
