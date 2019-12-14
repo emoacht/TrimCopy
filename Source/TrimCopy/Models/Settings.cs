@@ -37,7 +37,7 @@ namespace TrimCopy.Models
 
 		public bool TrimTrailingSpaces { get; set; } = true;
 
-		public bool HtmlEncode { get; set; } = false;
+		public bool UseHtmlEncode { get; set; } = false;
 
 		public LineEndType LineEndType { get; set; } = LineEndType.CrLf;
 

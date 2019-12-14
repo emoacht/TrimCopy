@@ -136,12 +136,6 @@
   <data name="fixedIndentSizeOutput3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fixedIndentSizeOutput3.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
   </data>
-  <data name="htmlEncodeInput1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\htmlEncodeInput1.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="htmlEncodeOutput1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\htmlEncodeOutput1.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
-  </data>
   <data name="lineEndInputOutput" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lineEndInputOutput.zip;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -165,5 +159,11 @@
   </data>
   <data name="trailingSpacesOutput2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\trailingSpacesOutput2.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
+  </data>
+  <data name="useHtmlEncodeInput1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\useHtmlEncodeInput1.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="useHtmlEncodeOutput1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\useHtmlEncodeOutput1.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

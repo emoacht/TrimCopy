@@ -55,17 +55,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="FixedIndentSizeTest.cs" />
-    <Compile Include="HtmlEncodeTest.cs" />
-    <Compile Include="LineEndTypeTest.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="TabSizeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FixedIndentSizeTest.cs" />
+    <Compile Include="LineEndTypeTest.cs" />
+    <Compile Include="TabSizeTest.cs" />
     <Compile Include="TrimTrailingSpacesTest.cs" />
+    <Compile Include="UseHtmlEncodeTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TrimCopy\TrimCopy.csproj">
@@ -83,22 +83,22 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\htmlEncodeInput1.txt" />
-    <None Include="Resources\htmlEncodeOutput1.txt" />
-    <None Include="Resources\lineEndInputOutput.zip" />
-    <None Include="Resources\trailingSpacesInput1.txt" />
-    <None Include="Resources\trailingSpacesOutput1.txt" />
-    <None Include="Resources\trailingSpacesOutput2.txt" />
     <None Include="Resources\fixedIndentSizeInput1.txt" />
     <None Include="Resources\fixedIndentSizeInput2.txt" />
+    <None Include="Resources\fixedIndentSizeInput3.txt" />
     <None Include="Resources\fixedIndentSizeOutput1.txt" />
     <None Include="Resources\fixedIndentSizeOutput2.txt" />
-    <None Include="Resources\fixedIndentSizeInput3.txt" />
     <None Include="Resources\fixedIndentSizeOutput3.txt" />
+    <None Include="Resources\lineEndInputOutput.zip" />
     <None Include="Resources\tabSizeInput1.txt" />
     <None Include="Resources\tabSizeInput2.txt" />
     <None Include="Resources\tabSizeOutput1.txt" />
     <None Include="Resources\tabSizeOutput2.txt" />
+    <None Include="Resources\trailingSpacesInput1.txt" />
+    <None Include="Resources\trailingSpacesOutput1.txt" />
+    <None Include="Resources\trailingSpacesOutput2.txt" />
+    <None Include="Resources\useHtmlEncodeInput1.txt" />
+    <None Include="Resources\useHtmlEncodeOutput1.txt" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

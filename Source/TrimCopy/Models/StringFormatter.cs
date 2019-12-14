@@ -15,7 +15,7 @@ namespace TrimCopy.Models
 			int tabSize = 4,
 			int fixedIndentSize = 0,
 			bool trimTrailingSpaces = true,
-			bool htmlEncode = false,
+			bool useHtmlEncode = false,
 			LineEndType lineEndType = LineEndType.CrLf)
 		{
 			if (string.IsNullOrEmpty(source))
@@ -27,7 +27,7 @@ namespace TrimCopy.Models
 
 			var joined = string.Join(lineEnd, trimmed.Concat(new[] { string.Empty })); // The last empty string is to add line ending at the tail.
 
-			return htmlEncode ? WebUtility.HtmlEncode(joined) : joined;
+			return useHtmlEncode ? WebUtility.HtmlEncode(joined) : joined;
 		}
 
 		private const char Space = ' ';

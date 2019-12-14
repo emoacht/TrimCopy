@@ -1,0 +1,22 @@
+﻿/// &lt;summary&gt;
+/// Get codec info from a BitmapImage.
+/// &lt;/summary&gt;
+/// &lt;typeparam name=&quot;TEncoder&quot;&gt;BitmapEncoder&lt;/typeparam&gt;
+/// &lt;param name=&quot;source&quot;&gt;BitmapImage&lt;/param&gt;
+/// &lt;returns&gt;Codec info&lt;/returns&gt;
+public static BitmapCodecInfo GetCodecInfo&lt;TEncoder&gt;(this BitmapImage source) where TEncoder : BitmapEncoder, new()
+{
+    if (source == null)
+        throw new ArgumentNullException(&quot;source&quot;);
+
+    using (var ms = new MemoryStream())
+    {
+        var encoder = new TEncoder();
+        encoder.Frames.Add(BitmapFrame.Create(source));
+        encoder.Save(ms);
+        ms.Seek(0, SeekOrigin.Begin);
+
+        var decoder = BitmapDecoder.Create(ms, BitmapCreateOptions.None, BitmapCacheOption.Default);
+        return decoder.CodecInfo;
+    }
+}

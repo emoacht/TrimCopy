@@ -42,10 +42,10 @@ namespace TrimCopy
 		public Toggle TrimTrailingSpaces { get; set; }
 
 		[Category("Supplement")]
-		[DisplayName("HTML encode")]
-		[Description("HTML encode on copy.")]
+		[DisplayName("Use HTML encode")]
+		[Description("Use HTML encode on copy.")]
 		[DefaultValue(Toggle.Off)]
-		public Toggle HtmlEncode { get; set; }
+		public Toggle UseHtmlEncode { get; set; }
 
 		[Category("Line Ending")]
 		[DisplayName("Line ending character")]
@@ -94,7 +94,7 @@ namespace TrimCopy
 			UseTabSizeInTextEditor = Settings.Current.UseTabSizeInTextEditor ? Toggle.On : Toggle.Off;
 			FixedIndentSize = Settings.Current.FixedIndentSize;
 			TrimTrailingSpaces = Settings.Current.TrimTrailingSpaces ? Toggle.On : Toggle.Off;
-			HtmlEncode = Settings.Current.HtmlEncode ? Toggle.On : Toggle.Off;
+			UseHtmlEncode = Settings.Current.UseHtmlEncode ? Toggle.On : Toggle.Off;
 			LineEndType = Settings.Current.LineEndType;
 		}
 
@@ -111,7 +111,7 @@ namespace TrimCopy
 			Settings.Current.UseTabSizeInTextEditor = (UseTabSizeInTextEditor == Toggle.On);
 			Settings.Current.FixedIndentSize = FixedIndentSize;
 			Settings.Current.TrimTrailingSpaces = (TrimTrailingSpaces == Toggle.On);
-			Settings.Current.HtmlEncode = (HtmlEncode == Toggle.On);
+			Settings.Current.UseHtmlEncode = (UseHtmlEncode == Toggle.On);
 			Settings.Current.LineEndType = LineEndType;
 
 			Settings.Save();

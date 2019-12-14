@@ -167,49 +167,6 @@ namespace TrimCopy.Test.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 		/// &lt;summary&gt;
-        ///		/// Get codec info from a BitmapImage.
-        ///		/// &lt;/summary&gt;
-        ///		/// &lt;typeparam name=&quot;TEncoder&quot;&gt;BitmapEncoder&lt;/typeparam&gt;
-        ///		/// &lt;param name=&quot;source&quot;&gt;BitmapImage&lt;/param&gt;
-        ///		/// &lt;returns&gt;Codec info&lt;/returns&gt;
-        ///		public static BitmapCodecInfo GetCodecInfo&lt;TEncoder&gt;(this BitmapImage source) where TEncoder : BitmapEncoder, new()
-        ///		{
-        ///			if (source == null)
-        ///				throw new ArgumentNullException(&quot;source&quot;);
-        ///
-        ///			using (var ms = new MemoryStream())
-        ///			{
-        ///				var encoder = new TEncoder();
-        ///				encoder [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string htmlEncodeInput1 {
-            get {
-                return ResourceManager.GetString("htmlEncodeInput1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to /// &amp;lt;summary&amp;gt;
-        ////// Get codec info from a BitmapImage.
-        ////// &amp;lt;/summary&amp;gt;
-        ////// &amp;lt;typeparam name=&amp;quot;TEncoder&amp;quot;&amp;gt;BitmapEncoder&amp;lt;/typeparam&amp;gt;
-        ////// &amp;lt;param name=&amp;quot;source&amp;quot;&amp;gt;BitmapImage&amp;lt;/param&amp;gt;
-        ////// &amp;lt;returns&amp;gt;Codec info&amp;lt;/returns&amp;gt;
-        ///public static BitmapCodecInfo GetCodecInfo&amp;lt;TEncoder&amp;gt;(this BitmapImage source) where TEncoder : BitmapEncoder, new()
-        ///{
-        ///    if (source == null)
-        ///        throw new ArgumentNullException(&amp;quot;source&amp;quot;);
-        ///
-        ///    using (var ms = [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string htmlEncodeOutput1 {
-            get {
-                return ResourceManager.GetString("htmlEncodeOutput1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] lineEndInputOutput {
@@ -356,6 +313,49 @@ namespace TrimCopy.Test.Properties {
         internal static string trailingSpacesOutput2 {
             get {
                 return ResourceManager.GetString("trailingSpacesOutput2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 		/// &lt;summary&gt;
+        ///		/// Get codec info from a BitmapImage.
+        ///		/// &lt;/summary&gt;
+        ///		/// &lt;typeparam name=&quot;TEncoder&quot;&gt;BitmapEncoder&lt;/typeparam&gt;
+        ///		/// &lt;param name=&quot;source&quot;&gt;BitmapImage&lt;/param&gt;
+        ///		/// &lt;returns&gt;Codec info&lt;/returns&gt;
+        ///		public static BitmapCodecInfo GetCodecInfo&lt;TEncoder&gt;(this BitmapImage source) where TEncoder : BitmapEncoder, new()
+        ///		{
+        ///			if (source == null)
+        ///				throw new ArgumentNullException(&quot;source&quot;);
+        ///
+        ///			using (var ms = new MemoryStream())
+        ///			{
+        ///				var encoder = new TEncoder();
+        ///				encoder [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string useHtmlEncodeInput1 {
+            get {
+                return ResourceManager.GetString("useHtmlEncodeInput1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /// &amp;lt;summary&amp;gt;
+        ////// Get codec info from a BitmapImage.
+        ////// &amp;lt;/summary&amp;gt;
+        ////// &amp;lt;typeparam name=&amp;quot;TEncoder&amp;quot;&amp;gt;BitmapEncoder&amp;lt;/typeparam&amp;gt;
+        ////// &amp;lt;param name=&amp;quot;source&amp;quot;&amp;gt;BitmapImage&amp;lt;/param&amp;gt;
+        ////// &amp;lt;returns&amp;gt;Codec info&amp;lt;/returns&amp;gt;
+        ///public static BitmapCodecInfo GetCodecInfo&amp;lt;TEncoder&amp;gt;(this BitmapImage source) where TEncoder : BitmapEncoder, new()
+        ///{
+        ///    if (source == null)
+        ///        throw new ArgumentNullException(&amp;quot;source&amp;quot;);
+        ///
+        ///    using (var ms = [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string useHtmlEncodeOutput1 {
+            get {
+                return ResourceManager.GetString("useHtmlEncodeOutput1", resourceCulture);
             }
         }
     }

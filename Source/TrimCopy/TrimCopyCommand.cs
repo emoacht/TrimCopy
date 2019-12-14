@@ -96,7 +96,7 @@ namespace TrimCopy
 				tabSize: tabSize,
 				fixedIndentSize: (isNoIndent ? 0 : Settings.Current.FixedIndentSize),
 				trimTrailingSpaces: Settings.Current.TrimTrailingSpaces,
-				htmlEncode: Settings.Current.HtmlEncode,
+				useHtmlEncode: Settings.Current.UseHtmlEncode,
 				lineEndType: Settings.Current.LineEndType);
 
 			Clipboard.SetText(formatted); // Exception handling is to be considered.
