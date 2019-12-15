@@ -15,18 +15,33 @@
 				<Color A="255" R="234" G="24" B="16"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
+
+		<SolidColorBrush x:Key="OutlineBrush" Color="#F0F0F0"/>
 	</UserControl.Resources>
 
 	<Grid>
-		<StackPanel>
-			<Rectangle Width="18" Height="4" Margin="0,2,0,0" Fill="{StaticResource SelectedLineBrush}" HorizontalAlignment="Left"/>
-			<Rectangle Width="22" Height="6" Margin="0,2,0,0" Fill="{StaticResource SelectedLineBrush}" HorizontalAlignment="Left"/>
-			<Rectangle Width="28" Height="4" Margin="0,0,0,0" Fill="{StaticResource SelectedLineBrush}" HorizontalAlignment="Left"/>
-			<Rectangle Width="32" Height="6" Margin="0,2,0,0" Fill="{StaticResource SelectedLineBrush}" HorizontalAlignment="Left"/>
-			<Rectangle Width="18" Height="4" Margin="0,0,0,0" Fill="{StaticResource SelectedLineBrush}" HorizontalAlignment="Left"/>
-		</StackPanel>
+		<Path Fill="{StaticResource OutlineBrush}">
+			<Path.Data>
+				<GeometryGroup FillRule="Nonzero">
+					<RectangleGeometry Rect="0,2,20,6"/>
+					<RectangleGeometry Rect="0,8,24,5"/>
+					<RectangleGeometry Rect="0,12,30,6"/>
+					<RectangleGeometry Rect="0,18,32,8"/>
+					<RectangleGeometry Rect="0,26,20,4"/>
+					<RectangleGeometry Rect="0,0,11,32"/>
+				</GeometryGroup>
+			</Path.Data>
+		</Path>
 
-		<Rectangle Width="10" Height="32"
+		<Canvas Margin="1">
+			<Rectangle Width="18" Height="4" Canvas.Top=" 2" Fill="{StaticResource SelectedLineBrush}"/>
+			<Rectangle Width="22" Height="4" Canvas.Top=" 8" Fill="{StaticResource SelectedLineBrush}"/>
+			<Rectangle Width="28" Height="4" Canvas.Top="12" Fill="{StaticResource SelectedLineBrush}"/>
+			<Rectangle Width="30" Height="6" Canvas.Top="18" Fill="{StaticResource SelectedLineBrush}"/>
+			<Rectangle Width="18" Height="4" Canvas.Top="24" Fill="{StaticResource SelectedLineBrush}"/>
+		</Canvas>
+
+		<Rectangle Width="9" Height="30" Margin="1"
 				   HorizontalAlignment="Left" VerticalAlignment="Top"
 				   SnapsToDevicePixels="True"
 				   Stroke="{StaticResource TrimAreaBrush}"
