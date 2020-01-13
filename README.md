@@ -5,6 +5,9 @@ Trim Copy is a Visual Studio extension to copy selected code block to the clipbo
 ## Requirements
 
  * Visual Studio 2015, 2017, 2019
+ * .NET Framework 4.8
+
+For older version of .NET Framework, use [VSIX package](https://github.com/emoacht/TrimCopy/releases/download/2.1/TrimCopy.vsix) which is built for .NET Framewrok 4.6.
 
 ## Development
 
