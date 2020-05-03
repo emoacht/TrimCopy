@@ -7,7 +7,17 @@ Trim Copy is a Visual Studio extension to copy selected code block to the clipbo
  * Visual Studio 2015, 2017, 2019
  * .NET Framework 4.8
 
-For older version of .NET Framework, use [VSIX package](https://github.com/emoacht/TrimCopy/releases/download/2.1/TrimCopy.vsix) which is built for .NET Framewrok 4.6.
+If you have only installed older version of .NET Framework, use [VSIX package](https://github.com/emoacht/TrimCopy/releases/download/2.1/TrimCopy.vsix) which is built for .NET Framewrok 4.6.
+
+## Keyboard shortcuts
+
+The keyboard shortcuts can be assigned by Visual Studio's options settings. See [Identify and customize keyboard shortcuts in Visual Studio](https://docs.microsoft.com/ja-jp/visualstudio/ide/identifying-and-customizing-keyboard-shortcuts-in-visual-studio).
+
+Open `Options`, go to `Keyboard` and find this extension's commands by searching __TrimCopy__ in `Show commands containing` box.
+
+![Screenshot](Images/screenshot4.png)
+
+Set shortcut keys as you wish.
 
 ## Development
 
