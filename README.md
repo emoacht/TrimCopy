@@ -11,7 +11,7 @@ If you have only installed older version of .NET Framework, use [VSIX package](h
 
 ## Keyboard shortcuts
 
-The keyboard shortcuts can be assigned by Visual Studio's options settings. See [Identify and customize keyboard shortcuts in Visual Studio](https://docs.microsoft.com/ja-jp/visualstudio/ide/identifying-and-customizing-keyboard-shortcuts-in-visual-studio).
+The keyboard shortcuts can be assigned by Visual Studio's options settings. See [Identify and customize keyboard shortcuts in Visual Studio](https://docs.microsoft.com/en-us/visualstudio/ide/identifying-and-customizing-keyboard-shortcuts-in-visual-studio).
 
 Open `Options`, go to `Keyboard` and find this extension's commands by searching __TrimCopy__ in `Show commands containing` box.
 
