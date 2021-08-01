@@ -81,6 +81,8 @@ namespace TrimCopy
 
 		private void GetFormatSetText(bool isNoIndent)
 		{
+			ThreadHelper.ThrowIfNotOnUIThread();
+
 			var activeDocument = ((DTE2)Package.GetGlobalService(typeof(DTE))).ActiveDocument;
 			if (activeDocument is null)
 				return;
@@ -104,6 +106,8 @@ namespace TrimCopy
 
 		private string GetSelectionText(Document activeDocument)
 		{
+			ThreadHelper.ThrowIfNotOnUIThread();
+
 			var selection = activeDocument.Selection as TextSelection;
 			if (selection is null)
 				return null;
@@ -120,6 +124,8 @@ namespace TrimCopy
 
 		private int GetTabSize(Document activeDocument)
 		{
+			ThreadHelper.ThrowIfNotOnUIThread();
+
 			if (Settings.Current.UseTabSizeInTextEditor)
 			{
 				var value = UserSettings.GetTabSize(ServiceProvider, activeDocument.Language);
