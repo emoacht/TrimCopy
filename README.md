@@ -30,6 +30,10 @@ These are default for Extensibility VSIX project and written in csproj.user file
 
 ## History
 
+Ver 2.2 2021-8-1
+
+ - Sort out references
+
 Ver 2.1 2019-12-15
 
  - Modified settings in Options
