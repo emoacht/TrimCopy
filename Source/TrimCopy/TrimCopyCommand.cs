@@ -1,12 +1,10 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using System.Diagnostics;
-using System.Globalization;
 using System.Windows;
 using EnvDTE;
 using EnvDTE80;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
 
 using TrimCopy.Models;
 
