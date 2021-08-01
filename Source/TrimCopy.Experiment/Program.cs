@@ -14,15 +14,17 @@ namespace TrimCopy.Experiment
 {
 	class Program
 	{
-		static void Main(string[] args)
+		static async Task Main(string[] args)
 		{
 			//Format();
 
-			//DownloadFiles();
+			//await DownloadFilesAsync();
 
-			//MeasureStringFormatterFormat();
+			//await MeasureStringFormatterFormatAsync();
 
-			//MeasureStringFormatterNextFormat();
+			//await MeasureStringFormatterNextFormatAsync();
+
+			await Task.CompletedTask;
 		}
 
 		#region Format
@@ -48,15 +50,15 @@ namespace TrimCopy.Experiment
 
 		#region Download
 
-		static void DownloadFiles()
+		static async Task DownloadFilesAsync()
 		{
-			var remaining = GitHubWorker.GetRateLimitRemainingAsync().Result;
+			var remaining = await GitHubWorker.GetRateLimitRemainingAsync();
 			Debug.WriteLine($"Remaining: {remaining}");
 
 			if (remaining.GetValueOrDefault() < 1)
 				return;
 
-			FileManager.DownloadFilesAsync("emoacht/SnowyImageCopy", 60, 1000).Wait();
+			await FileManager.DownloadFilesAsync("emoacht/SnowyImageCopy", 60, 1000);
 
 			Debug.WriteLine("Downloaded!");
 		}
@@ -65,21 +67,21 @@ namespace TrimCopy.Experiment
 
 		#region Measure Format	
 
-		static void MeasureStringFormatterFormat()
+		static Task MeasureStringFormatterFormatAsync()
 		{
-			ExecuteFormat(source => StringFormatter.Format(source, 4, 4));
+			return ExecuteFormatAsync(source => StringFormatter.Format(source, 4, 4));
 		}
 
-		static void MeasureStringFormatterNextFormat()
+		static Task MeasureStringFormatterNextFormatAsync()
 		{
-			ExecuteFormat(source => StringFormatterNext.Format(source, 4, 4));
+			return ExecuteFormatAsync(source => StringFormatterNext.Format(source, 4, 4));
 		}
 
-		static void ExecuteFormat(Func<string, string> formatter)
+		static async Task ExecuteFormatAsync(Func<string, string> formatter)
 		{
-			var sources = FileManager.StackFilesAsync(8).Result;
+			var sources = await FileManager.StackFilesAsync(8);
 
-			Task.Delay(TimeSpan.FromSeconds(10)).Wait();
+			await Task.Delay(TimeSpan.FromSeconds(10));
 
 			var sw = new Stopwatch();
 			sw.Start();
