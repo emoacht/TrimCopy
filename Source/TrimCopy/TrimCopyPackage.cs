@@ -24,7 +24,7 @@ namespace TrimCopy
 	/// </para>
 	/// </remarks>
 	[PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-	[InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)]
+	[InstalledProductRegistration("#110", "#112", "1.0")]
 	[Guid("561c1f6f-729d-4159-b797-9e8c91c2f594")]
 	[ProvideOptionPage(typeof(SettingsPage), "Trim Copy", "General", 0, 0, true)]
 	[ProvideMenuResource("Menus.ctmenu", 1)]
