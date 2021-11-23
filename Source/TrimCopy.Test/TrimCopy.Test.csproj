@@ -68,9 +68,9 @@
     <Compile Include="UseHtmlEncodeTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TrimCopy.VSIX\TrimCopy.VSIX.csproj">
+    <ProjectReference Include="..\TrimCopy.VSIX.2019\TrimCopy.VSIX.2019.csproj">
       <Project>{e58fedd2-9a73-4fc3-bac3-2bbe7503afa9}</Project>
-      <Name>TrimCopy.VSIX</Name>
+      <Name>TrimCopy.VSIX.2019</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
