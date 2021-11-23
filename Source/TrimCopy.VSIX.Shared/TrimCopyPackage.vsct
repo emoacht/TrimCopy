@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--This header defines the IDs for all the commands exposed by Visual Studio. -->
+  <Extern href="stdidcmd.h"/>
+
+  <!--This header contains the command IDs for the menus provided by the shell. -->
+  <Extern href="vsshlids.h"/>
+
+  <!--This header contains the image monikers for various images. -->
+  <Include href="KnownImageIds.vsct"/>
+
+  <Commands package="guidTrimCopyPackage">
+    <Menus>
+      <!--This is a menu to host a group which hosts actual buttons. This menu itself needs to be
+          hosted by a group which is hosted by Visual Studio's menu. -->
+      <Menu guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextSubMenu" priority="0x100" type="Menu">
+        <Parent guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextMenuItemGroup"/>
+        <Strings>
+          <ButtonText>Trim Copy</ButtonText>
+          <CommandName>Trim Copy</CommandName>
+        </Strings>
+      </Menu>
+    </Menus>
+
+    <Groups>
+      <!--This is a group added to the standard editor's context menu. The GUID and ID of context menu
+          are defined inside vsshlids.h. -->
+      <Group guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextMenuItemGroup" priority="0x400">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_CODEWIN"/>
+      </Group>
+
+      <Group guid="guidTrimCopyPackageCmdSet" id="XamlEditorContextMenuItemGroup" priority="0x400">
+        <Parent guid="guidXamlEditorContextMenu" id="IDM_XamlEditorContextMenu"/>
+      </Group>
+
+      <Group guid="guidTrimCopyPackageCmdSet" id="HtmlContextContextMenuItemGroup" priority="0x100">
+        <Parent guid="guidHtmlContextContextMenu" id="IDM_HtmlContextContextMenu"/>
+      </Group>
+
+      <Group guid="guidTrimCopyPackageCmdSet" id="JsonContextContextMenuItemGroup" priority="0x400">
+        <Parent guid="guidJsonContextContextMenu" id="IDM_JsonContextContextMenu"/>
+      </Group>
+
+      <!--<Group guid="guidTrimCopyPackageCmdSet" id="EditMenuItemGroup" priority="0x400">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_EDIT"/>
+      </Group>-->
+
+      <Group guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextSubMenuGroup" priority="0x100">
+        <Parent guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextSubMenu"/>
+      </Group>
+    </Groups>
+
+    <Buttons>
+      <Button guid="guidTrimCopyPackageCmdSet" id="CopyOneCommandId" priority="0x0100" type="Button">
+        <Parent guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextSubMenuGroup"/>
+        <Icon guid="ImageCatalogGuid" id="Copy"/>
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <Strings>
+          <ButtonText>Copy (no indent)</ButtonText>
+          <CommandName>Copy (no indent)</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="guidTrimCopyPackageCmdSet" id="CopyTwoCommandId" priority="0x0100" type="Button">
+        <Parent guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextSubMenuGroup"/>
+        <Icon guid="ImageCatalogGuid" id="Copy"/>
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <Strings>
+          <ButtonText>Copy (fixed indent)</ButtonText>
+          <CommandName>Copy (fixed indent)</CommandName>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+
+  <CommandPlacements>
+    <CommandPlacement guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextSubMenu" priority="0x100">
+      <Parent guid="guidTrimCopyPackageCmdSet" id="XamlEditorContextMenuItemGroup"/>
+    </CommandPlacement>
+
+    <CommandPlacement guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextSubMenu" priority="0x100">
+      <Parent guid="guidTrimCopyPackageCmdSet" id="HtmlContextContextMenuItemGroup"/>
+    </CommandPlacement>
+
+    <CommandPlacement guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextSubMenu" priority="0x100">
+      <Parent guid="guidTrimCopyPackageCmdSet" id="JsonContextContextMenuItemGroup"/>
+    </CommandPlacement>
+
+    <!--<CommandPlacement guid="guidTrimCopyPackageCmdSet" id="CodeWindowContextSubMenu" priority="0x100">
+      <Parent guid="guidTrimCopyPackageCmdSet" id="EditMenuItemGroup"/>
+    </CommandPlacement>-->
+  </CommandPlacements>
+
+  <Symbols>
+    <!--This is the package GUID of this extension. -->
+    <GuidSymbol name="guidTrimCopyPackage" value="{561c1f6f-729d-4159-b797-9e8c91c2f594}" />
+
+    <!--This is the GUID used to group the menu commands together. -->
+    <GuidSymbol name="guidTrimCopyPackageCmdSet" value="{7bafd567-6a8c-4c9c-bbc9-438ffcd60e39}">
+      <IDSymbol name="CodeWindowContextMenuItemGroup" value="0x1012"/>
+      <IDSymbol name="XamlEditorContextMenuItemGroup" value="0x1013"/>
+      <IDSymbol name="HtmlContextContextMenuItemGroup" value="0x1014"/>
+      <IDSymbol name="JsonContextContextMenuItemGroup" value="0x1015"/>
+      <!--<IDSymbol name="EditMenuItemGroup" value="0x1011"/>-->
+
+      <IDSymbol name="CodeWindowContextSubMenu" value="0x1100"/>
+      <IDSymbol name="CodeWindowContextSubMenuGroup" value="0x1150"/>
+
+      <IDSymbol name="CopyOneCommandId" value="0x0101"/>
+      <IDSymbol name="CopyTwoCommandId" value="0x0102"/>
+    </GuidSymbol>
+
+    <!--These are not defined in vsshlids.h but taken by using EnableVSIPLogging. -->
+    <GuidSymbol name="guidXamlEditorContextMenu" value="{4c87b692-1202-46aa-b64c-ef01faec53da}">
+      <IDSymbol name="IDM_XamlEditorContextMenu" value="0x103"/>
+    </GuidSymbol>
+    <GuidSymbol name="guidHtmlContextContextMenu" value="{78f03954-2fb8-4087-8ce7-59d71710b3bb}">
+      <IDSymbol name="IDM_HtmlContextContextMenu" value="0x1"/>
+    </GuidSymbol>
+    <GuidSymbol name="guidJsonContextContextMenu" value="{f718ca06-cf4f-4a0c-9106-e79e9ee5e7cd}">
+      <IDSymbol name="IDM_JsonContextContextMenu" value="0x3"/>
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+    <Metadata>
+        <Identity Id="d802e0ae-2f4b-440d-ae20-62f2cf4f3592" Version="2.2" Language="en-US" Publisher="emoacht" />
+        <DisplayName>Trim Copy</DisplayName>
+        <Description xml:space="preserve">Copies code block trimming leading white spaces while keeping indentation structure.</Description>
+        <MoreInfo>https://github.com/emoacht/TrimCopy/</MoreInfo>
+        <License>Resources\LICENSE.txt</License>
+        <Icon>Resources\logo.png</Icon>
+        <PreviewImage>Resources\logo.png</PreviewImage>
+        <Tags>Text Editor, Clipboard</Tags>
+    </Metadata>
+    <Installation>
+        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[14.0,]" />
+    </Installation>
+    <Dependencies>
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.8,)" />
+        <Dependency Id="Microsoft.VisualStudio.MPF.14.0" DisplayName="Visual Studio MPF 14.0" d:Source="Installed" Version="[14.0,]" />
+    </Dependencies>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    </Assets>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[14.0,]" DisplayName="Visual Studio core editor" />
+    </Prerequisites>
+</PackageManifest>
