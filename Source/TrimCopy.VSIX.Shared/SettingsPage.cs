@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
 
 using TrimCopy.Models;
 
@@ -60,8 +56,6 @@ namespace TrimCopy
 
 		protected override void OnActivate(CancelEventArgs e)
 		{
-			base.OnActivate(e);
-
 			if (!_isActivated)
 			{
 				_isActivated = true;
@@ -72,6 +66,8 @@ namespace TrimCopy
 				// Until then, default values of Settings class need to be reflected here.
 				Load();
 			}
+
+			base.OnActivate(e);
 		}
 
 		protected override void OnApply(PageApplyEventArgs e)

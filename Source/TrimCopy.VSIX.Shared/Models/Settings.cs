@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace TrimCopy.Models
@@ -56,11 +52,10 @@ namespace TrimCopy.Models
 			{
 				if (File.Exists(_settingsFilePath.Value))
 				{
-					using (var fs = new FileStream(_settingsFilePath.Value, FileMode.Open, FileAccess.Read))
-					{
-						var serializer = new XmlSerializer(typeof(Settings));
-						return (Settings)serializer.Deserialize(fs);
-					}
+					using var fs = new FileStream(_settingsFilePath.Value, FileMode.Open, FileAccess.Read);
+
+					var serializer = new XmlSerializer(typeof(Settings));
+					return (Settings)serializer.Deserialize(fs);
 				}
 			}
 			catch (Exception ex)
@@ -74,11 +69,10 @@ namespace TrimCopy.Models
 		{
 			try
 			{
-				using (var fs = new FileStream(_settingsFilePath.Value, FileMode.Create, FileAccess.Write))
-				{
-					var serializer = new XmlSerializer(typeof(Settings));
-					serializer.Serialize(fs, Current);
-				}
+				using var fs = new FileStream(_settingsFilePath.Value, FileMode.Create, FileAccess.Write);
+
+				var serializer = new XmlSerializer(typeof(Settings));
+				serializer.Serialize(fs, Current);
 			}
 			catch (Exception ex)
 			{

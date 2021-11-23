@@ -28,29 +28,24 @@ namespace TrimCopy.Models
 
 		public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
 		{
-			if (value is LineEndType sourceValue)
+			return value switch
 			{
-				switch (sourceValue)
-				{
-					case LineEndType.CrLf: return CrLf1;
-					case LineEndType.Lf: return Lf1;
-				}
-			}
-			throw new InvalidOperationException();
+				LineEndType.CrLf => CrLf1,
+				LineEndType.Lf => Lf1,
+				_ => throw new InvalidOperationException()
+			};
 		}
 
 		public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
 		{
-			switch (value as string)
+			return value switch
 			{
-				case CrLf1:
-				case CrLf2:
-					return LineEndType.CrLf;
-				case Lf1:
-				case Lf2:
-					return LineEndType.Lf;
-			}
-			throw new InvalidOperationException();
+				CrLf1 or
+				CrLf2 => LineEndType.CrLf,
+				Lf1 or
+				Lf2 => LineEndType.Lf,
+				_ => throw new InvalidOperationException()
+			};
 		}
 	}
 }
