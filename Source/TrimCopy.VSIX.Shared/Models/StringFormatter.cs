@@ -24,7 +24,7 @@ namespace TrimCopy.Models
 
 			var trimmed = TrimSpaces(source, tabSize, fixedIndentSize, trimTrailingSpaces);
 
-			var joined = string.Join(lineEnd, trimmed.Concat(new[] { string.Empty })); // The last empty string is to add line ending at the tail.
+			var joined = string.Join(lineEnd, trimmed.Append(string.Empty)); // The last empty string is to add line ending at the tail.
 
 			return useHtmlEncode ? WebUtility.HtmlEncode(joined) : joined;
 		}
@@ -38,9 +38,11 @@ namespace TrimCopy.Models
 			if (fixedIndentSize < 0) throw new ArgumentOutOfRangeException(nameof(fixedIndentSize));
 
 			IEnumerable<string> inputLines = source.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
-			var outputLines = new List<string>(inputLines.Count()); // The underlying collection for capacity is array.
 
-			var spacesCountMin = source.Length; // This number has to be greater than the length of any line.
+			var output = new StringBuilder(source.Length); // The maximum capacity is hard to be predicted.
+			var outputLineIndices = new List<int>(inputLines.Count()); // The underlying collection for capacity is array.
+
+			int outputLeadingSpacesCountMin = source.Length; // This number has to be greater than the length of any line.
 
 			var tabSpaces = Enumerable.Repeat(Space, tabSize).ToArray();
 			var fixedIndentSpaces = (0 < fixedIndentSize) ? Enumerable.Repeat(Space, fixedIndentSize).ToArray() : null;
@@ -54,58 +56,54 @@ namespace TrimCopy.Models
 
 			foreach (var inputLine in inputLines)
 			{
+				int outputLineIndex = output.Length;
+				outputLineIndices.Add(outputLineIndex);
+
 				if (inputLine.Length == 0)
-				{
-					outputLines.Add(string.Empty);
 					continue;
-				}
 
 				isEmptyAll = false;
 
-				var sb = new StringBuilder();
 				if (0 < fixedIndentSize)
-				{
-					sb.Append(fixedIndentSpaces);
-				}
+					output.Append(fixedIndentSpaces);
 
-				int inputCount = 0;
+				int inputLeadingWhiteSpacesCount = 0;
 				foreach (char inputChar in inputLine)
 				{
 					if (!char.IsWhiteSpace(inputChar))
 						break;
 
 					if (inputChar.Equals('\t'))
-						sb.Append(tabSpaces);
+						output.Append(tabSpaces);
 					else
-						sb.Append(Space);
+						output.Append(Space);
 
-					inputCount++;
+					inputLeadingWhiteSpacesCount++;
 				}
-				spacesCountMin = Math.Min(spacesCountMin, sb.Length);
-				sb.Append(inputLine.Substring(inputCount));
 
-				outputLines.Add(sb.ToString());
+				int outputLeadingSpacesCount = output.Length - outputLineIndex;
+				outputLeadingSpacesCountMin = Math.Min(outputLeadingSpacesCountMin, outputLeadingSpacesCount);
+
+				output.Append(inputLine, inputLeadingWhiteSpacesCount, inputLine.Length - inputLeadingWhiteSpacesCount);
 			}
 
-			var gap = isEmptyAll
+			int gap = isEmptyAll
 				? 0
-				: spacesCountMin - fixedIndentSize; // This number will never be negative.
+				: outputLeadingSpacesCountMin - fixedIndentSize; // This number will never be negative.
 
 			Debug.Assert(gap >= 0);
 
-			if (gap == 0)
+			for (int i = 0; i < outputLineIndices.Count; i++)
 			{
-				foreach (var outputLine in outputLines)
-					yield return outputLine;
-			}
-			else
-			{
-				foreach (var outputLine in outputLines)
-				{
-					yield return (outputLine.Length > 0)
-						? outputLine.Substring(gap)
-						: string.Empty;
-				}
+				int lineIndex = outputLineIndices[i];
+
+				int lineLength = ((i < outputLineIndices.Count - 1)
+					? outputLineIndices[i + 1]
+					: output.Length) - lineIndex;
+
+				yield return (lineLength == 0)
+					? string.Empty
+					: output.ToString(lineIndex + gap, lineLength - gap);
 			}
 		}
 	}
