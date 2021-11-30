@@ -4,6 +4,8 @@ using System.Threading;
 using Microsoft.VisualStudio.Shell;
 using Task = System.Threading.Tasks.Task;
 
+using TrimCopy.Models;
+
 namespace TrimCopy
 {
 	/// <summary>
@@ -24,7 +26,7 @@ namespace TrimCopy
 	/// </para>
 	/// </remarks>
 	[PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-	[InstalledProductRegistration("#110", "#112", "2.3")]
+	[InstalledProductRegistration("#110", "#112", "2.4")]
 	[Guid("561c1f6f-729d-4159-b797-9e8c91c2f594")]
 	[ProvideOptionPage(typeof(SettingsPage), "Trim Copy", "General", 0, 0, true)]
 	[ProvideMenuResource("Menus.ctmenu", 1)]
@@ -42,6 +44,8 @@ namespace TrimCopy
 			// When initialized asynchronously, the current thread may be a background thread at this point.
 			// Do any initialization that requires the UI thread after switching to the UI thread.
 			await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
+
+			await Settings.InitializeAsync();
 
 			TrimCopyCommand.Initialize(this);
 		}
