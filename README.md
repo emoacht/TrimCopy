@@ -21,13 +21,15 @@ Set shortcut keys as you wish.
 
 ## Development
 
-The version of Microsoft.VisualStudio.SDK meta-package corresponds to that of Visual Studio.
+Each version of Microsoft.VisualStudio.SDK meta-package is compatible with corresponding version of Visual Studio.
 
 | Microsoft.VisualStudio.SDK | Compatible Visual Studio |
 |----------------------------|--------------------------|
 | 15.x                       | 2017 (15.x), 2019 (16.x) |
 | 16.x                       | 2019 (16.x)              |
 | 17.x                       | 2022 (17.x)              | 
+
+Thus each project is compatible with corresponding version of Visual Studio as shown below.
 
 | Product name   | Project name       | Microsoft.VisualStudio.SDK | Compatible Visual Studio |
 |----------------|--------------------|----------------------------|--------------------------|
@@ -46,6 +48,10 @@ To run an extension in debug mode inside [experimental instance](https://docs.mi
 These are default for Extensibility VSIX project and written in csproj.user file but that file is not included in the repository in principle.
 
 ## History
+
+Ver 2.4 2021-12-1
+
+ - Improve method to format text
 
 Ver 2.3 2021-11-23
 
